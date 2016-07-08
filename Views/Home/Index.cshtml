@@ -1,5 +1,29 @@
+@model List<aspnetcoreapp.Models.Customer>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "My Title";
 }
 <h1>@ViewBag.Title</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.TextBox("Name", item.Id)</td>
+                <td>@Html.TextBox("Name", item.Name)</td>
+                <td>@Html.TextBox("Address", item.Address)</td>
+                <td>@Html.TextBox("Email", item.Email)</td>
+            </tr>
+            
+        }
+    </tbody>
+</table>

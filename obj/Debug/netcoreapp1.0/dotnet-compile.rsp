@@ -7,6 +7,7 @@
 --suppress-warning:CS1702
 --suppress-warning:CS1705
 --optimize:False
+--debug-type:portable
 --emit-entry-point:True
 --output-name:aspnetcoreapp
 --file-version:1.0.0.0
@@ -195,3 +196,4 @@ e:\Source\dotNetCore\aspnetcoreapp\Program.cs
 e:\Source\dotNetCore\aspnetcoreapp\Startup.cs
 e:\Source\dotNetCore\aspnetcoreapp\Controllers\HelloController.cs
 e:\Source\dotNetCore\aspnetcoreapp\Controllers\HomeController.cs
+e:\Source\dotNetCore\aspnetcoreapp\Models\Customer.cs

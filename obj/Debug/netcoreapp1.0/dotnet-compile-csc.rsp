@@ -4,7 +4,7 @@
 -nowarn:CS1701
 -nowarn:CS1702
 -nowarn:CS1705
--debug:full
+-debug:portable
 -nostdlib
 -nologo
 "e:\Source\dotNetCore\aspnetcoreapp\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
@@ -191,3 +191,4 @@
 "e:\Source\dotNetCore\aspnetcoreapp\Startup.cs"
 "e:\Source\dotNetCore\aspnetcoreapp\Controllers\HelloController.cs"
 "e:\Source\dotNetCore\aspnetcoreapp\Controllers\HomeController.cs"
+"e:\Source\dotNetCore\aspnetcoreapp\Models\Customer.cs"
