@@ -1,26 +1,45 @@
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System.Linq;
+using aspnetcoreapp.Repositories;
+using System.Collections.Generic;
 
 namespace aspnetcoreapp.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IDBContextRepository _dbContextRepository;
+
+
+        public HomeController(IDBContextRepository dbContextRepository, ILoggerFactory loggerFactory)
+        {
+            _dbContextRepository = dbContextRepository;
+        }
+
+        [HttpGet]
         public IActionResult Index()
         {
-            List<Models.Customer> customers = new List<Models.Customer>();
-            customers.Add(new Models.Customer{
-                Id = "1",
-                Name = "foinker",
-                Address = "222 Boogie Woogie Ave",
-                Email = "foink@doink.com"
-            });
-            customers.Add(new Models.Customer{
-                Id = "2",
-                Name = "yadaydyad",
-                Address = "asdfasdfasdf",
-                Email = "nobie@labiii.com"
-            });
-            return View(customers);
+            return View(_dbContextRepository.GetAll());
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Index(string id)
+        {
+            List<Models.Customer> returnItems = new List<Models.Customer>();
+
+            try
+            {
+                var customerRecord = _dbContextRepository.Get(id);
+                if (customerRecord != null)
+                {
+                    returnItems.Add(customerRecord);
+                }
+            }
+            catch
+            {
+
+            }
+            return View(returnItems);
         }
     }
 }
